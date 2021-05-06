@@ -143,18 +143,18 @@ Flink 的窗口 API 还具有 _Triggers_ 和 _Evictors_ 的概念，_Triggers_ �
 举一个简单的例子，我们一般这样使用键控事件流（基于 key 分组的输入事件流）：
 
 ```java
-stream.
+stream
     .keyBy(<key selector>)
     .window(<window assigner>)
-    .reduce|aggregate|process(<window function>)
+    .reduce|aggregate|process(<window function>); 
 ```
 
 您不是必须使用键控事件流（keyed stream），但是值得注意的是，如果不使用键控事件流，我们的程序就不能 _并行_ 处理。
 
 ```java
-stream.
+stream
     .windowAll(<window assigner>)
-    .reduce|aggregate|process(<window function>)
+    .reduce|aggregate|process(<window function>); 
 ```
 
 <a name="window-assigners"></a>
